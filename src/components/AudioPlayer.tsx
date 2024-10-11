@@ -1,6 +1,7 @@
 "use client";
 import useAudioPlayer from "@/hooks/useAudioPlayer";
 import { useAudioPlayerStore } from "@/hooks/useAudioPlayerStore";
+import { useMedia } from "@/hooks/useMedia";
 import { useSongsStore } from "@/hooks/useSongsStore";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
@@ -32,6 +33,8 @@ export default function AudioPlayer() {
     seekTo,
   } = useAudioPlayer({ songs, currentIndex, playing });
 
+  const isDesktop = useMedia("(min-width: 991px)");
+
   const currentSong = useMemo(
     () => (currentIndex !== null ? songs[currentIndex] : null),
     [songs, currentIndex]
@@ -59,7 +62,6 @@ export default function AudioPlayer() {
         width="0"
         height="0"
         volume={volume}
-        
       />
       <ProgressBar
         duration={duration}
@@ -79,7 +81,7 @@ export default function AudioPlayer() {
         onNext={handleNextSong}
         onPrevious={handlePreviousSong}
       />
-      <VolumeControl setVolume={setVolume} volume={volume} />
+      {isDesktop && <VolumeControl setVolume={setVolume} volume={volume} />}
     </motion.div>
   );
 }

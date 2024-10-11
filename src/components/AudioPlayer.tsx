@@ -62,6 +62,13 @@ export default function AudioPlayer() {
         width="0"
         height="0"
         volume={volume}
+        config={{
+          youtube: {
+            playerVars: {
+              playsinline: 1,
+            },
+          },
+        }}
       />
       <ProgressBar
         duration={duration}

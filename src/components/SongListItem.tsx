@@ -16,26 +16,28 @@ const SongListItem = ({ song, index }: Props) => {
   const isPlaying = index === currentIndex && playing;
 
   return (
-    <li
-      tabIndex={0}
-      role="button"
-      onClick={() => selectSong(index)}
-      className="cursor-pointer border rounded-xl px-4 py-2 flex justify-between items-center sm:hover:text-white sm:hover:bg-black transition-colors relative"
-    >
-      <div className="flex flex-col gap-1">
-        <h2 className="text-sm">{song.title}</h2>
-        <h3 className="text-xs font-bold">{song.author}</h3>
-      </div>
-      <div className="relative">
-        <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/The_Sounds_of_Earth_-_GPN-2000-001976.jpg/390px-The_Sounds_of_Earth_-_GPN-2000-001976.jpg"
-          alt="music image"
-          width={50}
-          height={50}
-          className={`rounded-lg transition-all  ${isPlaying ? "blur-sm" : ""}`}
-        />
-        {isPlaying && <MusicBars />}
-      </div>
+    <li>
+      <button
+        className="size-full cursor-pointer border rounded-xl px-4 py-2 flex justify-between  items-center sm:hover:text-white sm:hover:bg-black transition-colors relative"
+        onClick={() => selectSong(index)}
+      >
+        <div className="flex flex-col gap-1 items-start">
+          <h2 className="text-sm">{song.title}</h2>
+          <h3 className="text-xs font-bold">{song.author}</h3>
+        </div>
+        <div className="relative">
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/The_Sounds_of_Earth_-_GPN-2000-001976.jpg/390px-The_Sounds_of_Earth_-_GPN-2000-001976.jpg"
+            alt="music image"
+            width={50}
+            height={50}
+            className={`rounded-lg transition-all  ${
+              isPlaying ? "blur-sm" : ""
+            }`}
+          />
+          {isPlaying && <MusicBars />}
+        </div>
+      </button>
     </li>
   );
 };

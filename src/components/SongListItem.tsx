@@ -18,6 +18,7 @@ const SongListItem = ({ song, index }: Props) => {
   return (
     <li
       onClick={() => selectSong(index)}
+      onTouchEnd={() => selectSong(index)}
       className="cursor-pointer border rounded-xl px-4 py-2 flex justify-between items-center sm:hover:text-white sm:hover:bg-black transition-colors relative"
     >
       <div className="flex flex-col gap-1">

@@ -59,6 +59,7 @@ export default function AudioPlayer() {
         width="0"
         height="0"
         volume={volume}
+        
       />
       <ProgressBar
         duration={duration}

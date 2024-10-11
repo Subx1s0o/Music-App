@@ -17,6 +17,7 @@ const SongListItem = ({ song, index }: Props) => {
 
   return (
     <li
+      tabIndex={0}
       role="button"
       onClick={() => selectSong(index)}
       className="cursor-pointer border rounded-xl px-4 py-2 flex justify-between items-center sm:hover:text-white sm:hover:bg-black transition-colors relative"

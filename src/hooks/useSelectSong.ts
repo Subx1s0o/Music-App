@@ -4,11 +4,11 @@ export default function useSelectSong() {
   const { setCurrentIndex, currentIndex, setCurrentTime, play, togglePlay } =
     useAudioPlayerStore();
 
-  const selectSong = async (index: number) => {
+  const selectSong = (index: number) => {
     if (currentIndex !== index) {
       setCurrentIndex(index);
       setCurrentTime(0);
-      await play();
+      play();
     } else {
       togglePlay();
     }

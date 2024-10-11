@@ -8,7 +8,9 @@ export default function useSelectSong() {
     if (currentIndex !== index) {
       setCurrentIndex(index);
       setCurrentTime(0);
-      play();
+      requestAnimationFrame(() => {
+        play();
+      });
     } else {
       togglePlay();
     }
